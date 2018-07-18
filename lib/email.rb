@@ -1,4 +1,4 @@
-class Scrapper
+class Email
   def   initialize
 
   end
