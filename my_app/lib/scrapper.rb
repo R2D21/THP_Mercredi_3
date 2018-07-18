@@ -83,7 +83,7 @@ class   Scrapper
     @emails = []
     @links.each do |link|
       @emails[j] = get_email(link)
-      puts emails[j]
+      puts @emails[j]
       j +=1
     end
     return emails
