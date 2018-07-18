@@ -12,7 +12,6 @@ class   Scrapper
     list = {}
     names = []
     link = []
-    news_links = get_uri(@PAGE_URL)
     country = []
     links = []
     emails = []
@@ -100,6 +99,7 @@ end
 def     perform()
   i = 0;
   j = 0;
+  news_links = get_uri(@PAGE_URL)
   link = @PAGE_URL + '/'
   link += news_links[check_country(news_links)]
   get_uri(link).each do |lin|
