@@ -2,14 +2,8 @@
 require "nokogiri"
 require "open-uri"
 
+@page_url = "http://www2.assemblee-nationale.fr/deputes/liste/alphabetique"
 class   Deputes
-  #"http://www2.assemblee-nationale.fr/deputes/liste/alphabetique"
-  # "http://www2.assemblee-nationale.fr"
-  def   initialize(url)
-    @page_url = page_url
-      @url = url
-  end
-
   def     deputes_names()
     links = []
     i = 0;
@@ -36,6 +30,8 @@ class   Deputes
     return   links
   end
 
+  @url = "http://www2.assemblee-nationale.fr"
+
   def     get_email(url)
     email = []
     page = Nokogiri::HTML(open(url))
@@ -58,5 +54,29 @@ class   Deputes
     end
     return array
   end
+
+  def     perform
+    links = []
+    last_name = []
+    first_name = []
+    emails = []
+    my_hash_array = []
+    i = 0;
+    deputes_names.each do |word|
+      last_name[i] = word.split(' ')[2]
+      first_name[i] = word.split(' ')[1]
+      i +=1
+    end
+    i = 0;
+    deputes_url.each do |word|
+      emails[i] = get_email(word)
+      puts emails[i]
+      i +=1
+    end
+  my_hash_array = create_array_hash(first_name,last_name,emails)
+  my_hash_array.each do |array|
+    puts "#{array}"
+  end
 end
+
 perform
