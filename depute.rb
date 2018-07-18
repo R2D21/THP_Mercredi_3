@@ -79,4 +79,3 @@ class   Deputes
   end
   end
 end
-  perform
