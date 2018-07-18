@@ -3,7 +3,7 @@ class Email
     @emails = []
   end
 
-  def get_all_mails(links)
+  def get_all_mails(@links)
     j = 0
     links.each do |link|
       @emails[j] = get_email(link)
