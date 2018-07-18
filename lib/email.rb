@@ -1,5 +1,5 @@
 class Email
-  def   initialize
+  def   initialize(links)
     @emails = []
     @links = links
   end
