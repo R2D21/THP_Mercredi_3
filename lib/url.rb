@@ -1,5 +1,5 @@
 class Url
-  def   initialize
+  def   initialize(page_url)
     @page_url = page_url
   end
 
