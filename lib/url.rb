@@ -1,4 +1,4 @@
-class Scrapper
+class Url
   def   initialize
 
   end
