@@ -1,5 +1,5 @@
 class File
-  def   initialize()
+  def   initialize(file)
 
   end
 
