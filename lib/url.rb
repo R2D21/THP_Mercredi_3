@@ -1,9 +1,9 @@
 class Url
-  def   initialize
+  def   initialize(page_url)
     @page_url = page_url
   end
 
-  def     get_uri(page_url)
+  def     get_uri()
     links = []
     i = 0;
     page = Nokogiri::HTML(open(page_url))
