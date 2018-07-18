@@ -1,6 +1,6 @@
 class Url
   def   initialize
-
+    @page_url = page_url
   end
 
   def     get_uri(page_url)
