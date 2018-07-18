@@ -80,9 +80,9 @@ class   Scrapper
 
   def get_all_mails(@links)
     j = 0
-    emails = []
+    @emails = []
     @links.each do |link|
-      emails[j] = get_email(link)
+      @emails[j] = get_email(link)
       puts emails[j]
       j +=1
     end
