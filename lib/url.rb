@@ -15,7 +15,7 @@ class Url
     return links
   end
 
-  def     get_uri_code(page_url)
+  def     get_uri_code()
     links = []
     i = 0;
     page = Nokogiri::HTML(open(page_url))
