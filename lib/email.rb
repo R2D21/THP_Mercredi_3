@@ -5,9 +5,9 @@ class Email
     @url = url
   end
 
-  def get_all_mails(@links)
+  def get_all_mails()
     j = 0
-    links.each do |link|
+    @links.each do |link|
       @emails[j] = get_email(link)
       puts emails[j]
       j +=1
