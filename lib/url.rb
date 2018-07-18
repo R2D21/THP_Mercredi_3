@@ -1,6 +1,6 @@
 class Url
   def   initialize
-
+    @page_url = pag
   end
 
   def     get_uri(page_url)
@@ -21,10 +21,9 @@ class Url
     page = Nokogiri::HTML(open(page_url))
     news_links = page.css("a").select{|link| link['title']}
     news_links.each do |link|
-    links[i] = link['title']
-    i +=1;
+      links[i] = link['title']
+      i +=1;
+    end
+    return links
   end
-  return links
-end
-
 end
