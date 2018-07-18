@@ -4,7 +4,7 @@ require "open-uri"
 
 class   Deputes
   #"http://www2.assemblee-nationale.fr/deputes/liste/alphabetique"
-  def   initialize(url_page, url)
+  def   initialize(page_url, url)
     @page_url =
   end
 
