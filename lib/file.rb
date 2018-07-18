@@ -3,7 +3,4 @@ class File
     @file = file
   end
 
-  def   file
-
-  end
 end
