@@ -15,8 +15,6 @@ class   Scrapper
     country = []
     links = []
     emails = []
-    tmp = []
-    temp = ""
   end
 def     get_uri(page_url)
   links = []
@@ -101,6 +99,8 @@ def     perform()
   j = 0;
   news_links = get_uri(@PAGE_URL)
   link = @PAGE_URL + '/'
+  tmp = []
+  temp = ""
   link += news_links[check_country(news_links)]
   get_uri(link).each do |lin|
     tmp[i] = lin.split('.')[1]
