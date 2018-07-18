@@ -1,6 +1,0 @@
-class Scrapper
-  def   initialize
-    Url.new(li)
-    emails = Email.new(links)
-  end
-end
