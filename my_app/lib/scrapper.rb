@@ -121,6 +121,6 @@ def     perform()
     i +=1
     j +=1
   end
-  my_hash = create_hash(links, get_all_mails(links))
+  @my_hash = create_hash(links, get_all_mails(links))
   puts "#{my_hash}"
 end
