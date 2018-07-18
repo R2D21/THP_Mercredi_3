@@ -107,7 +107,7 @@ def     perform()
       tmp[i] = lin.split('.')[1]
       if tmp[i][0] == '/'
         temp = @PAGE_URL + tmp[i]
-        links[j] = temp
+        @links[j] = temp
         j +=1
       end
       i +=1
