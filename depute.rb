@@ -77,6 +77,6 @@ class   Deputes
   my_hash_array.each do |array|
     puts "#{array}"
   end
+  end
 end
-
-perform
+  perform
