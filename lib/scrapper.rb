@@ -1,5 +1,5 @@
 class Scrapper
   def   initialize
-    Email.new()
+    Email.new(links)
   end
 end
