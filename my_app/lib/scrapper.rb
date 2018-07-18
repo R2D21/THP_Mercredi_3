@@ -9,6 +9,15 @@ class   Scrapper
   def   initialize(page_url, url)
     @page_url = url
     @url = url
+    list = {}
+    names = []
+    link = []
+    news_links = get_uri(@PAGE_URL)
+    country = []
+    links = []
+    emails = []
+    tmp = []
+    temp = ""
   end
 def     get_uri(page_url)
   links = []
@@ -89,17 +98,8 @@ end
  end
 
 def     perform()
-  list = {}
   i = 0;
   j = 0;
-  names = []
-  link = []
-  news_links = get_uri(@PAGE_URL)
-  country = []
-  links = []
-  emails = []
-  tmp = []
-  temp = ""
   link = @PAGE_URL + '/'
   link += news_links[check_country(news_links)]
   get_uri(link).each do |lin|
