@@ -5,11 +5,11 @@ require 'nokogiri'
 require 'open-uri'
 
 class   Scrapper
+  #@PAGE_URL => "http://annuaire-des-mairies.com"
   def   initialize(page_url, url)
     @page_url = url
     @url = url
   end
-@PAGE_URL = "http://annuaire-des-mairies.com"
 def     get_uri(page_url)
   links = []
   i = 0;
