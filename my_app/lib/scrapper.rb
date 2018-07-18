@@ -5,8 +5,6 @@ require 'nokogiri'
 require 'open-uri'
 
 class   Scrapper
-  # page_url => "http://www2.assemblee-nationale.fr/deputes/liste/alphabetique"
-  # url => "http://www2.assemblee-nationale.fr"
   def   initialize(page_url, url)
     @page_url = url
     @url = url
