@@ -18,27 +18,27 @@ class   Scrapper
   end
 
   def     get_uri(page_url)
-    links = []
+    @links = []
     i = 0;
     page = Nokogiri::HTML(open(page_url))
     news_links = page.css("a").select{|link| link['href']}
     news_links.each do |link|
-      links[i] = link['href']
+      @links[i] = link['href']
       i +=1;
     end
-    return links
+    return @links
   end
 
   def     get_uri_code(page_url)
-    links = []
+    @links = []
     i = 0;
     page = Nokogiri::HTML(open(page_url))
     news_links = page.css("a").select{|link| link['title']}
     news_links.each do |link|
-      links[i] = link['title']
+      @links[i] = link['title']
       i +=1;
     end
-    return links
+    return @links
   end
 
   def create_hash(country, code)
@@ -55,15 +55,15 @@ class   Scrapper
     page = Nokogiri::HTML(open(page_url))
     news_links = page.css("a").select{|link| link['href']}
     news_links.each do |link|
-      links[i] = link['href']
+      @links[i] = link['href']
       i +=1;
     end
-    return links
+    return @links
   end
 
-  def     check_country(links)
+  def     check_country(@links)
     i = 0;
-    links.each do |word|
+    @links.each do |word|
       if word.include?("val-d-oise")
         return (i);
       end
@@ -78,10 +78,10 @@ class   Scrapper
     end
   end
 
-  def get_all_mails(links)
+  def get_all_mails(@links)
     j = 0
     emails = []
-    links.each do |link|
+    @links.each do |link|
       emails[j] = get_email(link)
       puts emails[j]
       j +=1
@@ -94,15 +94,15 @@ class   Scrapper
     page = Nokogiri::HTML(open(url))
     page.xpath('/html/body/div/main/section[2]/div/table/tbody/tr[4]/td[2]').text
   end
-
-  def     perform()
-    i = 0;
-    j = 0;
+end
+def     perform()
+  i = 0;
+  j = 0;
     news_links = get_uri(@PAGE_URL)
     link = @PAGE_URL + '/'
     tmp = []
     temp = ""
-    link += news_links[check_country(news_links)]
+    link += news_links[check_country(news_@links)]
     get_uri(link).each do |lin|
       tmp[i] = lin.split('.')[1]
       if tmp[i][0] == '/'
