@@ -6,7 +6,7 @@ class Url
   def     get_uri()
     links = []
     i = 0;
-    page = Nokogiri::HTML(open(page_url))
+    page = Nokogiri::HTML(open(@page_url))
     news_links = page.css("a").select{|link| link['href']}
     news_links.each do |link|
       links[i] = link['href']
