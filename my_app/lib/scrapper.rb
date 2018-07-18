@@ -9,77 +9,49 @@ class   Scrapper
     @page_url = url
     @url = url
   end
+require 'rubygems'
+require 'nokogiri'
+require 'open-uri'
+require './parse'
+require './string'
 
-  def     deputes_names()
-    links = []
-    i = 0;
-    j = 0
-    page = Nokogiri::HTML(open(@page_url))
-    news_links = page.css("ul[class=col3]").css("li").css("a")
-    news_links.each do |link|
-      links[i] = link.text
-      i +=1;
-    end
-    return links
-  end
+@PAGE_URL = "http://annuaire-des-mairies.com"
 
-  def     deputes_url()
-    links = []
-    i = 0;
-    j = 0
-    page = Nokogiri::HTML(open(@page_url))
-    news_links = page.css("ul[class=col3]").css("li").css("a").select{|link| link['href']}
-    news_links.each do |link|
-      links[i] =  @url + link['href']
-      i +=1;
+def     perform()
+  list = {}
+  i = 0;
+  j = 0;
+  names = []
+  link = []
+  news_links = get_uri(@PAGE_URL)
+  country = []
+  links = []
+  emails = []
+  tmp = []
+  temp = ""
+  link = @PAGE_URL + '/'
+  link += news_links[check_country(news_links)]
+  get_uri(link).each do |lin|
+    tmp[i] = lin.split('.')[1]
+    if tmp[i][0] == '/'
+      temp = @PAGE_URL + tmp[i]
+      links[j] = temp
+      j +=1
     end
-    return   links
-  end
-
-  def     get_email(url)
-    email = []
-    page = Nokogiri::HTML(open(url))
-    page.css('a[@href ^="mailto:"]').each do |element|
-    email << element["href"]
-    email[0][0..6] = ''
-    break
+    i +=1
     end
-    return email
+  list = create_hash(get_all_mails(links),links)
+  i = 6
+  tmp = parse_string(names)
+  i = 0
+  j = 0
+  while i < tmp.size - 15
+    names[j] = tmp[i]
+    i +=1
+    j +=1
   end
-
-  def     create_array_hash(first_name,last_name,emails)
-    array = []
-    my_hash = {}
-    i = 0;
-    while i < first_name.size
-      my_hash = {:first_name => first_name[i],:last_name => last_name[i],:email => emails[i]}
-      array.push(my_hash);
-      i +=1
-    end
-    return array
-  end
-
-  def     perform
-    links = []
-    last_name = []
-    first_name = []
-    emails = []
-    my_hash_array = []
-    i = 0;
-    deputes_names.each do |word|
-      last_name[i] = word.split(' ')[2]
-      first_name[i] = word.split(' ')[1]
-      i +=1
-    end
-    i = 0;
-    deputes_url.each do |word|
-      emails[i] = get_email(word)
-      puts emails[i]
-      i +=1
-    end
-  my_hash_array = create_array_hash(first_name,last_name,emails)
-  my_hash_array.each do |array|
-    puts "#{array}"
-  end
-  end
+  my_hash = create_hash(links, get_all_mails(links))
+  puts "#{my_hash}"
+end
+perform
 end
