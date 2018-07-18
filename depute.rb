@@ -2,8 +2,14 @@
 require "nokogiri"
 require "open-uri"
 
-@page_url = "http://www2.assemblee-nationale.fr/deputes/liste/alphabetique"
 class   Deputes
+  #"http://www2.assemblee-nationale.fr/deputes/liste/alphabetique"
+  # "http://www2.assemblee-nationale.fr"
+  def   initialize(url)
+    @page_url = page_url
+      @url = url
+  end
+
   def     deputes_names()
     links = []
     i = 0;
@@ -29,8 +35,6 @@ class   Deputes
     end
     return   links
   end
-
-  @url = "http://www2.assemblee-nationale.fr"
 
   def     get_email(url)
     email = []
