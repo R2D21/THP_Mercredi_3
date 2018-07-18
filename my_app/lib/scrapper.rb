@@ -113,11 +113,11 @@ def     perform()
   end
   @list = create_hash(get_all_mails(@links),@links)
   i = 6
-  tmp = parse_string(names)
+  tmp = parse_string(@names)
   i = 0
   j = 0
   while i < tmp.size - 15
-    names[j] = tmp[i]
+    @names[j] = tmp[i]
     i +=1
     j +=1
   end
