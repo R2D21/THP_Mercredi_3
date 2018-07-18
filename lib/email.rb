@@ -15,7 +15,7 @@ class Email
     return emails
   end
 
-  def get_email(@url)
+  def get_email()
     page = Nokogiri::HTML(open(@url))
     page.xpath('/html/body/div/main/section[2]/div/table/tbody/tr[4]/td[2]').text
   end
