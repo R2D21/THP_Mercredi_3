@@ -111,7 +111,7 @@ def     perform()
       end
       i +=1
     end
-    list = create_hash(get_all_mails(links),links)
+    @list = create_hash(get_all_mails(links),links)
     i = 6
     tmp = parse_string(names)
     i = 0
