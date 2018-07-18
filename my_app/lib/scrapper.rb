@@ -86,7 +86,6 @@ class   Scrapper
       puts @emails[j]
       j +=1
     end
-    return emails
   end
 
   def get_email(url)
