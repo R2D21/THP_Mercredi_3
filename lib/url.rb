@@ -15,10 +15,10 @@ class Url
     return links
   end
 
-  def     get_uri_code(page_url)
+  def     get_uri_code()
     links = []
     i = 0;
-    page = Nokogiri::HTML(open(page_url))
+    page = Nokogiri::HTML(open(@page_url))
     news_links = page.css("a").select{|link| link['title']}
     news_links.each do |link|
       links[i] = link['title']
