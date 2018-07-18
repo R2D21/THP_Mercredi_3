@@ -9,12 +9,12 @@ class   Scrapper
   def   initialize(page_url, url)
     @page_url = url
     @url = url
-    list = {}
-    names = []
-    link = []
-    country = []
-    links = []
-    emails = []
+    @list = {}
+    @names = []
+    @link = []
+    @country = []
+    @links = []
+    @emails = []
   end
 def     get_uri(page_url)
   links = []
