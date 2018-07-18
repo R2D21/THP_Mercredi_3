@@ -16,7 +16,8 @@ class   Scrapper
     @links = []
     @emails = []
   end
-def     get_uri(page_url)
+
+  def     get_uri(page_url)
   links = []
   i = 0;
   page = Nokogiri::HTML(open(page_url))
