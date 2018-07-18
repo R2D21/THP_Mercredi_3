@@ -18,36 +18,36 @@ class   Scrapper
   end
 
   def     get_uri(page_url)
-  links = []
-  i = 0;
-  page = Nokogiri::HTML(open(page_url))
-  news_links = page.css("a").select{|link| link['href']}
-  news_links.each do |link|
-    links[i] = link['href']
-    i +=1;
+    links = []
+    i = 0;
+    page = Nokogiri::HTML(open(page_url))
+    news_links = page.css("a").select{|link| link['href']}
+    news_links.each do |link|
+      links[i] = link['href']
+      i +=1;
+    end
+    return links
   end
-  return links
-end
 
-def     get_uri_code(page_url)
-  links = []
-  i = 0;
-  page = Nokogiri::HTML(open(page_url))
-  news_links = page.css("a").select{|link| link['title']}
-  news_links.each do |link|
-    links[i] = link['title']
-    i +=1;
+  def     get_uri_code(page_url)
+    links = []
+    i = 0;
+    page = Nokogiri::HTML(open(page_url))
+    news_links = page.css("a").select{|link| link['title']}
+    news_links.each do |link|
+      links[i] = link['title']
+      i +=1;
+    end
+    return links
   end
-  return links
-end
 
-def create_hash(country, code)
+  def create_hash(country, code)
   my_hash = {}
   country.each_with_index do |elem, index|
     my_hash[elem] = code[index]
   end
   return my_hash
-end
+  end
 
 def     get_address(mairie)
   links = []
@@ -89,11 +89,11 @@ def get_all_mails(links)
   return emails
 end
 
- def get_email(url)
+def get_email(url)
 
-        page = Nokogiri::HTML(open(url))
-        page.xpath('/html/body/div/main/section[2]/div/table/tbody/tr[4]/td[2]').text
- end
+  page = Nokogiri::HTML(open(url))
+  page.xpath('/html/body/div/main/section[2]/div/table/tbody/tr[4]/td[2]').text
+end
 
 def     perform()
   i = 0;
@@ -125,5 +125,4 @@ def     perform()
   my_hash = create_hash(links, get_all_mails(links))
   puts "#{my_hash}"
 end
-perform
 end
