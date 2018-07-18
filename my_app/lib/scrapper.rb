@@ -103,7 +103,7 @@ def     perform()
     tmp = []
     temp = ""
     link += news_links[check_country(news_links)]
-    get_uri(link).each do |lin|
+    get_uri(@link).each do |lin|
       tmp[i] = lin.split('.')[1]
       if tmp[i][0] == '/'
         temp = @PAGE_URL + tmp[i]
