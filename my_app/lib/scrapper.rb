@@ -2,7 +2,7 @@
 require "nokogiri"
 require "open-uri"
 
-class   Deputes
+class   Scrapper
   # page_url => "http://www2.assemblee-nationale.fr/deputes/liste/alphabetique"
   # url => "http://www2.assemblee-nationale.fr"
   def   initialize(page_url, url)
